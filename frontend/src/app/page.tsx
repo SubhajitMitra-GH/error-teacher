@@ -16,7 +16,7 @@ export default function Home() {
 
   
 
-  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY as string);
   const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
   async function generate() {
@@ -98,7 +98,7 @@ export default function Home() {
       <CardContent className=" flex flex-col items-center justify-center pt-20 box-border h-full">
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
           {videos.length > 0 ? (
-            videos.map((video) => (
+            videos.map((video:any) => (
               <div key={video.id.videoId} className="p-2 border rounded-lg shadow-md bg-white dark:bg-gray-700">
                 <a
                   href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
