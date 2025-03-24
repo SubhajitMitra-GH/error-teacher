@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ModeToggle } from "@/components/CompDropdown";
 import markdownToTxt from "markdown-to-txt";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import Image from "next/image";
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
@@ -106,7 +107,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex flex-col items-center"
                 >
-                  <img
+                  <Image
                     src={video.snippet.thumbnails.medium.url}
                     alt={video.snippet.title}
                     className="rounded-lg shadow-md w-full"
