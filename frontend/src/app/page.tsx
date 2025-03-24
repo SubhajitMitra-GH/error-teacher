@@ -14,9 +14,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [videos, setVideos] = useState([]);
 
-  const handleChange = (e) => {
-    setInputText(e.target.value);
-  };
+  
 
   const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
@@ -79,8 +77,7 @@ export default function Home() {
         }`}
         placeholder="Type your error message here."
         value={inputText}
-        onChange={handleChange}
-        onClick={() => setSubmitted(false)}
+        onChange={(e) => setInputText(e.target.value)}        onClick={() => setSubmitted(false)}
       />
 
       {!submitted && (
